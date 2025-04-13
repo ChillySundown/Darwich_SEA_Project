@@ -29,12 +29,15 @@ const CURB_POSTER_URL =
   "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
 const EAST_LOS_HIGH_POSTER_URL =
   "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+const BOARDWALK_TIJUANA_PANTHERS = <iframe width="300" height="315" src="https://www.youtube.com/embed/ARl1MxIMy98?si=9rLpJHAAVwD7Jr7G" title="YouTube video player" 
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 // This is an array of strings (TV show titles)
 let titles = [
-  "Fresh Prince of Bel Air",
-  "Curb Your Enthusiasm",
-  "East Los High",
+  "Heroes And Villans",
+  "SWEET AGNES",
+  "Boardwalk", "Forbidden Zone"
 ];
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
