@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SETLIST| Home</title>
+    <title>SETLIST | Home</title>
     <meta name="description" content="Songs I would play if I was in a band!" />
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="scripts.js"></script>
@@ -15,17 +15,15 @@
     <div class="card" style="display: none">
       <div class="card-content">
         <h2>Song Title</h2>
-        <iframe src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
+        <img src="" alt="TV SHOW POSTER"/>
+        <ul id="cardList">
         </ul>
       </div>
     </div>
     <div class="footer">
       <button onclick="quoteAlert();">Get A Quote!</button>
       <button onclick="removeLastCard();">Remove A Card!</button>
+      <input type="text" id="yearTxt"><button onclick="filterByYear()">Filter By Year</button>
     </div>
   </body>
 </html>

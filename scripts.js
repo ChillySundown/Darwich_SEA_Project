@@ -29,15 +29,37 @@ const CURB_POSTER_URL =
   "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
 const EAST_LOS_HIGH_POSTER_URL =
   "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-const BOARDWALK_TIJUANA_PANTHERS = <iframe width="300" height="315" src="https://www.youtube.com/embed/ARl1MxIMy98?si=9rLpJHAAVwD7Jr7G" title="YouTube video player" 
-frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+const BOARDWALK_TIJUANA_PANTHERS = "https://www.youtube.com/embed/ARl1MxIMy98?si=9rLpJHAAVwD7Jr7G";
 
-// This is an array of strings (TV show titles)
+
+
+// This is an array of strings (Song Titles)
 let titles = [
-  "Heroes And Villans",
-  "SWEET AGNES",
-  "Boardwalk", "Forbidden Zone"
+  "Heroes And Villans", "SWEET AGNES", "Boardwalk", 
+  "Badfish", "TOKYO REGGIE", "Forbidden Zone", 
+  "Skylark", "Prayer Knees", "Joe Hill",
+  "Caught By The Fuzz", "Surfer Girl", "Denmark Street", 
+  "MAMBO JAMBO", "Another Believer", "Ball And Chain"];
+
+let bands = [
+  "The Beach Boys", "Masayoshi Takanaka", "Tijuana Panthers", 
+  "Sublime", "Masayoshi Takanaka", "Oingo Boingo", "The Four Freshmen",
+  "Tijuana Panthers", "Joan Benz", "Supergrass", "The Beach Boys", "The Kinks", 
+  "Masayoshi Takanaka", "Rufus Wainwright", "Sublime"
+];
+
+let genres = [
+  "Psychedelic Pop", "Jazz Fusion", "Surf Rock", 
+  "Reggae Rock", "Jazz Fusion", "Punk", "Jazz", 
+  "Surf Rock", "Folk", "Punk", "Pop", "Rock", 
+  "Jazz Fusion", "Pop", "Ska"
+];
+let years = [
+  1967, 1977, 2013, 
+  1992, 1976, 1980, 
+  2006, 2015, 1969, 
+  1995, 1963, 1970, 
+  1994, 2007, 1991
 ];
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
@@ -50,6 +72,9 @@ function showCards() {
 
   for (let i = 0; i < titles.length; i++) {
     let title = titles[i];
+    let band = bands[i];
+    let genre = genres[i];
+    let year = years[i];
 
     // This part of the code doesn't scale very well! After you add your
     // own data, you'll need to do something totally different here.
@@ -63,12 +88,12 @@ function showCards() {
     }
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
+    editCardContent(nextCard, title, imageURL, band,year, genre); // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+function editCardContent(card, newTitle, newImageURL, bandName, yearRelased, genre) {
   card.style.display = "block";
 
   const cardHeader = card.querySelector("h2");
@@ -76,7 +101,19 @@ function editCardContent(card, newTitle, newImageURL) {
 
   const cardImage = card.querySelector("img");
   cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+  cardImage.alt = newTitle + "Cover";
+
+  const cardList = card.querySelector("ul");
+  console.log("cardList: " + cardList);
+
+  let songDetails = [bandName, yearRelased, genre];
+  for(detail of songDetails) {
+    let liItem = document.createElement("li");
+    liItem.textContent = detail;
+    cardList.appendChild(liItem);
+  }
+
+
 
   // You can use console.log to help you debug!
   // View the output by right clicking on your website,
