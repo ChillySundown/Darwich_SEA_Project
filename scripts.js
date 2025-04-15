@@ -32,35 +32,82 @@ const EAST_LOS_HIGH_POSTER_URL =
 const BOARDWALK_TIJUANA_PANTHERS = "https://www.youtube.com/embed/ARl1MxIMy98?si=9rLpJHAAVwD7Jr7G";
 
 
+//Array of all song objects
+const songs = [
+  {title: "Heroes And Villans", 
+    band: "The Beach Boys",
+    genre: "Psychedelic Pop",
+    year: 1967
+  },{title: "SWEET AGNES",
+   band: "Masayoshi Takanaka",
+   genre: "Jazz Fusion",
+   year: 1977
+  },{title: "Boardwalk",
+    band: "Tijuana Panthers",
+    genre: "Surf Rock",
+    year: 2013
+  },{title: "Badfish",
+    band: "Sublime",
+    genre: "Reggae Rock",
+    year: 1992
+  },{title: "TOKYO REGGIE",
+    band: "Masayoshi Takanaka",
+    genre: "Jazz Fusion",
+    year: 1976
+  },{title: "Forbidden Zone",
+    band: "Oingo Boingo",
+    genre: "Punk",
+    year: 1980
+  },{title: "Skylark",
+    band: "The Four Freshmen",
+    genre: "Jazz",
+    year: 2006
+  },{title: "Caught By The Fuzz",
+    band: "Supergrass",
+    genre: "Punk",
+    year: 1995
+  },{title: "Prayer Knees",
+    band: "Tijuana Panthers",
+    genre: "Surf Rock",
+    year: 2015
+  },{title: "Joe Hill",
+    band: "Joan Baez",
+    genre: "Folk",
+    year: 1969
+  },{title: "Basket Case",
+    band: "Green Day",
+    genre: "Punk",
+    year: 1994
+  },{title: "Surfer Girl",
+    band: "The Beach Boys",
+    genre: "Punk",
+    year: 1963
+  },{title: "Denmark Street",
+    band: "The Kinks",
+    genre: "Rock",
+    year: 1970
+  },{title: "MAMBO JAMBO",
+    band: "Masayoshi Takanaka",
+    genre: "Jazz Fusion",
+    year: 1994
+  },{title: "Another Believer",
+    band: "Rufus Wainwright",
+    genre: "Pop",
+    year: 2007
+  },{title: "Ball And Chain",
+    band: "Sublime",
+    genre: "Ska",
+    year: 1992
+  },{title: "Yes Sir!",
+    band: "Oingo Boingo",
+    genre: "Jazz",
+    year: "1977"
+  },{title: "Nature Zone",
+    band: "Oingo Boingo",
+    genre: "Jazz Fusion",
+    year: "1980"
+  }];
 
-// This is an array of strings (Song Titles)
-let titles = [
-  "Heroes And Villans", "SWEET AGNES", "Boardwalk", 
-  "Badfish", "TOKYO REGGIE", "Forbidden Zone", 
-  "Skylark", "Prayer Knees", "Joe Hill",
-  "Caught By The Fuzz", "Surfer Girl", "Denmark Street", 
-  "MAMBO JAMBO", "Another Believer", "Ball And Chain"];
-
-let bands = [
-  "The Beach Boys", "Masayoshi Takanaka", "Tijuana Panthers", 
-  "Sublime", "Masayoshi Takanaka", "Oingo Boingo", "The Four Freshmen",
-  "Tijuana Panthers", "Joan Benz", "Supergrass", "The Beach Boys", "The Kinks", 
-  "Masayoshi Takanaka", "Rufus Wainwright", "Sublime"
-];
-
-let genres = [
-  "Psychedelic Pop", "Jazz Fusion", "Surf Rock", 
-  "Reggae Rock", "Jazz Fusion", "Punk", "Jazz", 
-  "Surf Rock", "Folk", "Punk", "Pop", "Rock", 
-  "Jazz Fusion", "Pop", "Ska"
-];
-let years = [
-  1967, 1977, 2013, 
-  1992, 1976, 1980, 
-  2006, 2015, 1969, 
-  1995, 1963, 1970, 
-  1994, 2007, 1991
-];
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
 
@@ -69,27 +116,23 @@ function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
+  for (let i = 0; i < songs.length; i++) {
+    let thisSong = songs[i];
+    
+    if(thisSong != undefined) {
+      let title = thisSong.title;
+      let band = thisSong.band;
+      let genre = thisSong.genre;
+      let year = thisSong.year;
 
-  for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
-    let band = bands[i];
-    let genre = genres[i];
-    let year = years[i];
+      // This part of the code doesn't scale very well! After you add your
+      // own data, you'll need to do something totally different here.
+      let imageURL = "";
 
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-    let imageURL = "";
-    if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
-    } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
-    } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
+      const nextCard = templateCard.cloneNode(true); // Copy the template card
+      editCardContent(nextCard, title, imageURL, band,year, genre); // Edit title and image
+      cardContainer.appendChild(nextCard); // Add new card to the container
     }
-
-    const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL, band,year, genre); // Edit title and image
-    cardContainer.appendChild(nextCard); // Add new card to the container
   }
 }
 
@@ -124,14 +167,39 @@ function editCardContent(card, newTitle, newImageURL, bandName, yearRelased, gen
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
-function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!"
-  );
+// function quoteAlert() {
+//   console.log("Button Clicked!");
+//   alert(
+//     "Work in Progress"
+//   );
+// }
+
+function sortByYear() {
+  songs.sort(function(s1, s2) {
+      if(s1.year < s2.year) {
+        return -1;
+      }
+      else if(s1.year > s2.year) {
+        return 1;
+      }
+      return 0;
+  });
+  showCards();
+}
+
+function filterByYear() {
+  console.log("Year selected by user\n");
+  const yrInput = document.getElementById("num").value;
+  for(let k = songs.length-1; k >= 0; k--) {
+    if(songs[k].year != yrInput) {
+      delete songs[k];
+    }
+  }
+  showCards();
+  
 }
 
 function removeLastCard() {
-  titles.pop(); // Remove last item in titles array
+  songs.pop(); // Remove last item in titles array
   showCards(); // Call showCards again to refresh
 }
