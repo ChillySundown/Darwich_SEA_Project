@@ -40,11 +40,11 @@ const songs = [
     year: 1967
   },{title: "SWEET AGNES",
    band: "Masayoshi Takanaka",
-   genre: "Jazz Fusion",
+   genre: "Jazz Fusion, Citypop",
    year: 1977
   },{title: "Boardwalk",
     band: "Tijuana Panthers",
-    genre: "Surf Rock",
+    genre: "Surf Rock, Doo-Wop",
     year: 2013
   },{title: "Badfish",
     band: "Sublime",
@@ -52,11 +52,11 @@ const songs = [
     year: 1992
   },{title: "TOKYO REGGIE",
     band: "Masayoshi Takanaka",
-    genre: "Jazz Fusion",
+    genre: "Jazz Fusion, Citypop",
     year: 1976
   },{title: "Forbidden Zone",
     band: "Oingo Boingo",
-    genre: "Punk",
+    genre: "Punk, Jazz-Rock",
     year: 1980
   },{title: "Skylark",
     band: "The Four Freshmen",
@@ -64,11 +64,11 @@ const songs = [
     year: 2006
   },{title: "Caught By The Fuzz",
     band: "Supergrass",
-    genre: "Punk",
+    genre: "Punk, Rock",
     year: 1995
   },{title: "Prayer Knees",
     band: "Tijuana Panthers",
-    genre: "Surf Rock",
+    genre: "Surf Rock, Punk",
     year: 2015
   },{title: "Joe Hill",
     band: "Joan Baez",
@@ -76,11 +76,11 @@ const songs = [
     year: 1969
   },{title: "Basket Case",
     band: "Green Day",
-    genre: "Punk",
+    genre: "Punk, Pop-Punk",
     year: 1994
   },{title: "Surfer Girl",
     band: "The Beach Boys",
-    genre: "Punk",
+    genre: "Pop, Surf Pop",
     year: 1963
   },{title: "Denmark Street",
     band: "The Kinks",
@@ -88,19 +88,19 @@ const songs = [
     year: 1970
   },{title: "MAMBO JAMBO",
     band: "Masayoshi Takanaka",
-    genre: "Jazz Fusion",
+    genre: "Jazz Fusion, Cuban",
     year: 1994
   },{title: "Another Believer",
     band: "Rufus Wainwright",
-    genre: "Pop",
+    genre: "Pop, Soundtrack",
     year: 2007
   },{title: "Ball And Chain",
     band: "Sublime",
-    genre: "Ska",
+    genre: "Ska, Reggae Rock",
     year: 1992
   },{title: "Yes Sir!",
     band: "Oingo Boingo",
-    genre: "Jazz",
+    genre: "Jazz, Cabaret",
     year: "1977"
   },{title: "Nature Zone",
     band: "Oingo Boingo",
