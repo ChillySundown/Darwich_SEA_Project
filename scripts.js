@@ -199,6 +199,17 @@ function filterByYear() {
   
 }
 
+function filterByGenre() {
+  console.log("Genre selected by user\n");
+  const input = document.getElementById("txt").value.toLowerCase();
+  for(let k = songs.length-1; k >= 0; k--) {
+    if(!songs[k].genre.toLowerCase().includes(input)) {
+      delete songs[k];
+    }
+  }
+  showCards();
+}
+
 function removeLastCard() {
   songs.pop(); // Remove last item in titles array
   showCards(); // Call showCards again to refresh
