@@ -34,7 +34,7 @@ const BOARDWALK_TIJUANA_PANTHERS = "https://www.youtube.com/embed/ARl1MxIMy98?si
 
 //Array of all song objects
 const songs = [
-  {title: "Heroes And Villans", 
+  {title: "Heroes And Villains", 
     band: "The Beach Boys",
     genre: "Psychedelic Pop",
     year: 1967
