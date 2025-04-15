@@ -22,14 +22,26 @@
  *    with the string you added to the array, but a broken image.
  *
  */
-
-const FRESH_PRINCE_URL =
-  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL =
-  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL =
-  "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-const BOARDWALK_TIJUANA_PANTHERS = "https://www.youtube.com/embed/ARl1MxIMy98?si=9rLpJHAAVwD7Jr7G";
+const SONG_URLS = new Map([
+  ["Heroes And Villains", "https://www.youtube.com/embed/ptxwWt2JeGQ"],
+  ["SWEET AGNES", "https://www.youtube.com/embed/SESUT4VeO0M?si=GV5_S20qtgVpfbrZ&amp;controls=0" ],
+  ["Boardwalk", "https://www.youtube.com/embed/ARl1MxIMy98?si=hsiCmzzZ5ioVUMaV&amp;controls=0"],
+  ["Badfish", "https://www.youtube.com/embed/Sa3VcxJhUdE?si=YRZhBPm4oTO_331u&amp;controls=0"],
+  ["TOKYO REGGIE", "https://www.youtube.com/embed/CnKd3V-VpDs?si=Wurt_Cj7fPqoytOC&amp;controls=0"],
+  ["Forbidden Zone", "https://www.youtube.com/embed/xitlReEpcrY?si=tx9zQaBWCAAtlGCM&amp;controls=0"],
+  ["Skylark", "https://www.youtube.com/embed/dlrrToQAgD8?si=nxVfL6dmojdUQIGX&amp;controls=0"],
+  ["Caught By The Fuzz","https://www.youtube.com/embed/Y-bklantQw8?si=Qibf4YYtZNynYEqp&amp;controls=0"],
+  ["Prayer Knees", "https://www.youtube.com/embed/G5WoUma-NyE?si=cAKlvn_2rRFf0tOw&amp;controls=0"],
+  ["Joe Hill", "https://www.youtube.com/embed/kgrkFOInY8k?si=-mOrMvnINmgsoic8&amp;controls=0"],
+  ["Basket Case", "https://www.youtube.com/embed/VKjEdYrx9P0?si=ZSq2QX5BYsX6m7zK&amp;controls=0"],
+  ["Surfer Girl", "https://www.youtube.com/embed/lHNcMs8W660?si=J7jstxY4wE5NNceQ&amp;controls=0"],
+  ["Denmark Street", "https://www.youtube.com/embed/d-gjVt6k16s?si=BaWmwa2AU5D2j7Vo&amp;controls=0"],
+  ["MAMBO JAMBO", "https://www.youtube.com/embed/qhU2OzwY0F0?si=XQJRQdyT6w7A-Lj_&amp;controls=0"],
+  ["Another Believer", "https://www.youtube.com/embed/a1xaTkFG2oY?si=R8lMMSTyHJcOPRiO&amp;controls=0"],
+  ["Ball And Chain", "https://www.youtube.com/embed/f35OeA48pR4?si=fMothPOkHhIuITbt&amp;controls=0" ],
+  ["Yes Sir!", "https://www.youtube.com/embed/6eYcfAJCUkg?si=rO0IUTDRqOWamv9M&amp;controls=0"],
+  ["Nature Zone", "https://www.youtube.com/embed/LmNaPQilVfE?si=WXQggjbeOSBYxFDH&amp;controls=0"]
+]);
 
 
 //Array of all song objects
@@ -80,7 +92,7 @@ const songs = [
     year: 1994
   },{title: "Surfer Girl",
     band: "The Beach Boys",
-    genre: "Pop, Surf Pop",
+    genre: "Pop, Doo-Wop",
     year: 1963
   },{title: "Denmark Street",
     band: "The Kinks",
@@ -127,27 +139,27 @@ function showCards() {
 
       // This part of the code doesn't scale very well! After you add your
       // own data, you'll need to do something totally different here.
-      let imageURL = "";
+      let videoURL = SONG_URLS.get(title);
 
       const nextCard = templateCard.cloneNode(true); // Copy the template card
-      editCardContent(nextCard, title, imageURL, band,year, genre); // Edit title and image
+      editCardContent(nextCard, title, videoURL, band,year, genre); // Edit title and image
       cardContainer.appendChild(nextCard); // Add new card to the container
     }
   }
 }
 
-function editCardContent(card, newTitle, newImageURL, bandName, yearRelased, genre) {
+function editCardContent(card, newTitle, videoURL, bandName, yearRelased, genre) {
   card.style.display = "block";
 
   const cardHeader = card.querySelector("h2");
   cardHeader.textContent = newTitle;
 
-  const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + "Cover";
+  const cardVideo = card.querySelector("iframe");
+  console.log("cardVideo:" + cardVideo + "\n");
+  cardVideo.src = videoURL;
+  cardVideo.title = newTitle + "Video";
 
   const cardList = card.querySelector("ul");
-  console.log("cardList: " + cardList);
 
   let songDetails = [bandName, yearRelased, genre];
   for(detail of songDetails) {

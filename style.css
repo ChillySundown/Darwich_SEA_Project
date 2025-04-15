@@ -47,8 +47,8 @@ body {
   font-size: 20px;
 }
 
-.card img {
-  width: 100%;
+.card iframe {
+  width: 250px;
   height: auto;
 }
 
