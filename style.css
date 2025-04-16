@@ -2,11 +2,11 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color:#afe1ff;
+  background-color:#ffffff;
 }
 
 .main-header {
-  background-color: rgba(12, 129, 238, 0.993);
+  background-color: rgba(9, 135, 253, 0.993);
   padding-bottom: 10px;
 }
 
@@ -14,15 +14,16 @@ body {
   text-align: center;
   margin: 0;
   font-size: 4em;
-  font-family: "Jokerman";
+  font-family: "Verdana";
+  font-style: oblique;
   font-weight: thin;
-  color: rgb(251, 255, 0);
+  color: rgb(251, 255, 25);
 }
 
 #card-container {
   display: grid;
   justify-content: flex-start;
-  grid-template-columns: 500px 500px 500px;
+  grid-template-columns: 375px 375px 375px 375px;
   margin: 40px;
 }
 
@@ -57,7 +58,7 @@ body {
 .footer {
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(9, 135, 253, 0.993);
   padding: 10px;
 }
 
